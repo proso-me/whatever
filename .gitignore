@@ -3,3 +3,4 @@
 /.coverage
 /.mutmut-cache
 /.python-version
+/coverage.xml
