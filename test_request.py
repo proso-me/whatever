@@ -1,4 +1,4 @@
-from random import randint
+from secrets import randbelow
 from unittest import mock
 import pytest
 
@@ -23,10 +23,10 @@ def ipv4address():
         @staticmethod
         def get():
             """Return an ipv4 address."""
-            ipaddr = f"{randint(1, 255)}."
-            f"{randint(1, 255)}."
-            f"{randint(1, 255)}."
-            f"{randint(1, 255)}"
+            ipaddr = f"{randbelow(255) + 1}."
+            f"{randbelow(255) + 1}."
+            f"{randbelow(255) + 1}."
+            f"{randbelow(255) + 1}"
             return ipaddr
     return IPv4AddrFactory()
 
