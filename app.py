@@ -2,10 +2,13 @@ import uuid
 
 from flask import Flask, jsonify
 from flask_pydantic import validate
+from flask_wtf import CSRFProtect
 from pydantic import ValidationError, BaseModel, EmailStr, Field
 
 
 app = Flask(__name__)
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 
 @app.route('/health-check/')
@@ -35,4 +38,3 @@ def create_blog(body: Blog):
 
 if __name__ == '__main__':
     app.run()
-
