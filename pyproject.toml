@@ -20,6 +20,26 @@ pytest-cov = "^4.1.0"
 mutmut = "^2.4.4"
 hypothesis = "^6.89.0"
 
+[tool.coverage.report]
+exclude_also = [
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+    ]
+
+[tool.coverage.run]
+omit = [
+    "*/test_*/*",
+    "conftest.py",
+    ]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
