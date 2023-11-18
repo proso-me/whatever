@@ -7,6 +7,7 @@ from pydantic import ValidationError, BaseModel, EmailStr, Field
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = uuid.uuid4().hex
 csrf = CSRFProtect()
 csrf.init_app(app)
 

@@ -1,4 +1,4 @@
-import  pytest
+import pytest
 import json
 
 from app import app
@@ -6,7 +6,8 @@ from app import app
 
 @pytest.fixture
 def client():
-    app.config['TESTING']
+    app.config['TESTING'] = True
+    app.config['WTF_CSRF_METHODS'] = []
 
     with app.test_client() as client:
         yield client
@@ -36,4 +37,3 @@ def test_create_blog_bad_request(client):
 
     assert response.status_code == 400
     assert response.json is not None
-
