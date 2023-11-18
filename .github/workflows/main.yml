@@ -22,7 +22,7 @@ jobs:
       - name: Install any other packages
         run: poetry install
       - name: Run tests
-        run: poetry run python -m pytest --cov=. --omit=conftest.py --hypothesis-show-statistics --cov-report term --cov-report xml:coverage.xml
+        run: poetry run python -m pytest --cov=. --hypothesis-show-statistics --cov-report term --cov-report xml:coverage.xml
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
