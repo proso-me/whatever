@@ -49,7 +49,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Run tests
-        run: poetry run coverage -m pytest -m "no e2e"
+        run: poetry run coverage run -m pytest -m "no e2e"
   code-quality:
     strategy:
       fail-fast: false
