@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr
 
-from src.blog.models import NotFound, Article
+from src.blog.models import Article, NotFound
 
 
 class AlreadyExists(Exception):
@@ -20,9 +20,7 @@ class CreateArticleCommand(BaseModel):
             pass
 
         article = Article(
-            author=self.author,
-            title=self.title,
-            content=self.content
+            author=self.author, title=self.title, content=self.content
         ).save()
 
         return article

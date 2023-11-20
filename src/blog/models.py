@@ -3,7 +3,7 @@ import sqlite3
 import uuid
 from typing import List
 
-from pydantic import BaseModel, Field, EmailStr
+from pydantic import BaseModel, EmailStr, Field
 
 
 class NotFound(Exception):
@@ -18,7 +18,7 @@ class Article(BaseModel):
 
     @classmethod
     def get_by_id(cls, article_id: str) -> "Article":
-        con = sqlite3.Connection(os.getenv('WEVER_DB_NAME', "db.sqlite"))
+        con = sqlite3.Connection(os.getenv("WEVER_DB_NAME", "db.sqlite"))
         con.row_factory = sqlite3.Row
 
         cur = con.cursor()
@@ -35,7 +35,7 @@ class Article(BaseModel):
 
     @classmethod
     def get_by_title(cls, title: str) -> "Article":
-        con = sqlite3.Connection(os.getenv('WEVER_DB_NAME', "db.sqlite"))
+        con = sqlite3.Connection(os.getenv("WEVER_DB_NAME", "db.sqlite"))
         con.row_factory = sqlite3.Row
 
         cur = con.cursor()
@@ -52,7 +52,7 @@ class Article(BaseModel):
 
     @classmethod
     def get_list(cls) -> List["Article"]:
-        con = sqlite3.Connection(os.getenv('WEVER_DB_NAME', "db.sqlite"))
+        con = sqlite3.Connection(os.getenv("WEVER_DB_NAME", "db.sqlite"))
         con.row_factory = sqlite3.Row
 
         cur = con.cursor()
@@ -66,12 +66,12 @@ class Article(BaseModel):
         return articles
 
     def save(self) -> "Article":
-        with sqlite3.connect(os.getenv('WEVER_DB_NAME', "db.sqlite")) as conn:
+        with sqlite3.connect(os.getenv("WEVER_DB_NAME", "db.sqlite")) as conn:
             cur = conn.cursor()
             cur.execute(
                 "INSERT INTO articles (id, author, title, content)"
                 "VALUES (?, ?, ?, ?)",
-                (self.id, self.author, self.title, self.content)
+                (self.id, self.author, self.title, self.content),
             )
             conn.commit()
 

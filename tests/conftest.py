@@ -19,7 +19,7 @@ def test_fixture_usage(random_name):
 @pytest.fixture(autouse=True)
 def database():
     _, filename = tempfile.mkstemp()
-    os.environ['WEVER_DB_NAME'] = filename
+    os.environ["WEVER_DB_NAME"] = filename
     Article.create_table(database_name=filename)
     yield
     os.unlink(filename)

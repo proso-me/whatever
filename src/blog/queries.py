@@ -6,7 +6,6 @@ from src.blog.models import Article
 
 
 class ListArticlesQuery(BaseModel):
-
     @staticmethod
     def execute() -> List[Article]:
         articles = Article.get_list()

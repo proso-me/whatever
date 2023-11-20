@@ -22,6 +22,12 @@ hypothesis = "^6.89.0"
 jsonschema = "^4.20.0"
 referencing = "^0.31.0"
 coverage = "^7.3.2"
+flake8 = "^6.1.0"
+black = "^23.11.0"
+isort = "^5.12.0"
+safety = "^2.3.5"
+bandit = "^1.7.5"
+pre-commit = "^3.5.0"
 
 [tool.pytest.ini_options]
 markers = [
@@ -47,6 +53,17 @@ omit = [
     "*/test_*/*",
     "conftest.py",
     ]
+
+[tool.black]
+line-length = 120
+
+[tool.flake8]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+max-line-length = 120
 
 [build-system]
 requires = ["poetry-core"]

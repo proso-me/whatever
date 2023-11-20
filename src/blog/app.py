@@ -14,9 +14,7 @@ def validation_error(e):
 
 @app.route("/create-article/", methods=["POST"])
 def create_article():
-    cmd = CreateArticleCommand(
-        **request.json
-    )
+    cmd = CreateArticleCommand(**request.json)
     return jsonify(dict(cmd.execute()))
 
 
