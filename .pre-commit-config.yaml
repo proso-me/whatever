@@ -4,5 +4,9 @@ repos:
     hooks:
     -   id: flake8
         additional_dependencies: [flake8-typing-imports==1.10.0]
-        exclude: ^site-pacakges/
+        exclude: ^site-packages/
         args: [--max-complexity=20, --max-line-length=120]
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 'v1.7.0'
+    hooks:
+    -   id: mypy
