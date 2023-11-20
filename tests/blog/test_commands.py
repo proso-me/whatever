@@ -38,9 +38,7 @@ def test_create_article_already_exists():
         content="Super extra awesome article",
     ).save()
 
-    cmd = CreateArticleCommand(
-        author="john@doe.com", title="New Article", content="Super awesome article"
-    )
+    cmd = CreateArticleCommand(author="john@doe.com", title="New Article", content="Super awesome article")
 
     with pytest.raises(AlreadyExists):
         cmd.execute()

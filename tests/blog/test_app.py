@@ -9,7 +9,6 @@ from referencing import Registry, Resource
 from src.blog.app import app
 from src.blog.models import Article
 
-
 protocol = "http:"
 port = ":5000"
 
@@ -26,9 +25,7 @@ def schemas():
     return (
         [
             Resource.from_contents(json.loads(schema_file.read_text()))
-            for schema_file in (pathlib.Path(__file__).parent / "schemas").glob(
-                "*.json"
-            )
+            for schema_file in (pathlib.Path(__file__).parent / "schemas").glob("*.json")
         ]
         @ Registry()
     ).crawl()
@@ -78,9 +75,7 @@ def test_list_articles(client, schemas):
     ).save()
     response = client.get("/list-articles/", content_type="application/json")
     # noinspection PyArgumentList
-    Draft4Validator(
-        schemas.get("usn:articles_list").contents, registry=schemas
-    ).validate(response.json)
+    Draft4Validator(schemas.get("usn:articles_list").contents, registry=schemas).validate(response.json)
 
 
 @pytest.mark.parametrize(
@@ -108,9 +103,7 @@ def test_create_article_invalid(client, data):
     WHEN endpoint create-article is called
     THEN should return 400
     """
-    response = client.post(
-        "/create-article/", json=data, content_type="application/json"
-    )
+    response = client.post("/create-article/", json=data, content_type="application/json")
     assert response.status_code == 400
 
 

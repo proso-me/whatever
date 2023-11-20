@@ -19,8 +19,6 @@ class CreateArticleCommand(BaseModel):
         except NotFound:
             pass
 
-        article = Article(
-            author=self.author, title=self.title, content=self.content
-        ).save()
+        article = Article(author=self.author, title=self.title, content=self.content).save()
 
         return article

@@ -69,8 +69,7 @@ class Article(BaseModel):
         with sqlite3.connect(os.getenv("WEVER_DB_NAME", "db.sqlite")) as conn:
             cur = conn.cursor()
             cur.execute(
-                "INSERT INTO articles (id, author, title, content)"
-                "VALUES (?, ?, ?, ?)",
+                "INSERT INTO articles (id, author, title, content)" "VALUES (?, ?, ?, ?)",
                 (self.id, self.author, self.title, self.content),
             )
             conn.commit()
@@ -80,8 +79,5 @@ class Article(BaseModel):
     @classmethod
     def create_table(cls, database_name="db"):
         conn = sqlite3.connect(database_name)
-        conn.execute(
-            "CREATE TABLE IF NOT EXISTS articles "
-            "(id TEXT, author TEXT, title TEXT, content TEXT)"
-        )
+        conn.execute("CREATE TABLE IF NOT EXISTS articles " "(id TEXT, author TEXT, title TEXT, content TEXT)")
         conn.close()
