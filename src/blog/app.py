@@ -11,6 +11,7 @@ app = Flask(__name__)
 def validation_error(e):
     return jsonify(e.errors()), 400
 
+
 @app.route("/create-article/", methods=["POST"])
 def create_article():
     cmd = CreateArticleCommand(
@@ -23,7 +24,6 @@ def create_article():
 def list_articles():
     articles = ListArticlesQuery()
     return jsonify([dict(el) for el in articles.execute()])
-
 
 
 @app.route("/article/<article_id>/", methods=["GET"])

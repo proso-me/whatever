@@ -23,6 +23,11 @@ jsonschema = "^4.20.0"
 referencing = "^0.31.0"
 coverage = "^7.3.2"
 
+[tool.pytest.ini_options]
+markers = [
+    "e2e: marks tests as e2e (deselect with '-m \"not e2e\"')",
+]
+
 [tool.coverage.report]
 exclude_also = [
     "def __repr__",

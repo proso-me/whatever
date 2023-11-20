@@ -2,6 +2,7 @@ import json
 import pathlib
 
 import pytest
+import requests
 from jsonschema.validators import Draft4Validator
 from referencing import Registry, Resource
 
@@ -91,3 +92,10 @@ def test_create_article_invalid(client, data):
     """
     response = client.post("/create-article/", json=data, content_type="application/json")
     assert response.status_code == 400
+
+
+@pytest.mark.e2e
+def test_create_list_get(client):
+    requests.post(
+        "http://localhost:5000/cre"
+    )
