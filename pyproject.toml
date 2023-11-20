@@ -19,6 +19,9 @@ pytest = "^7.4.3"
 pytest-cov = "^4.1.0"
 mutmut = "^2.4.4"
 hypothesis = "^6.89.0"
+jsonschema = "^4.20.0"
+referencing = "^0.31.0"
+coverage = "^7.3.2"
 
 [tool.coverage.report]
 exclude_also = [

@@ -1,0 +1,7 @@
+{
+  "$id": "usn:articles_list",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ArticleList",
+  "type": "array",
+  "items": {"$ref":  "usn:article"}
+}
