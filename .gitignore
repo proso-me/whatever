@@ -4,3 +4,6 @@
 /.mutmut-cache
 /.python-version
 /coverage.xml
+/tests/.coverage
+/db.sqlite
+/.idea/

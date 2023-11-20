@@ -18,7 +18,6 @@ def client():
 
 @pytest.fixture
 def schemas():
-    registry = Registry()
     return ([
         Resource.from_contents(json.loads(schema_file.read_text()))
         for schema_file
@@ -65,6 +64,7 @@ def test_list_articles(client, schemas):
         content="Super extra awesome article",
     ).save()
     response = client.get("/list-articles/", content_type="application/json")
+    # noinspection PyArgumentList
     Draft4Validator(schemas.get("usn:articles_list").contents, registry=schemas).validate(response.json)
 
 
