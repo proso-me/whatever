@@ -7,3 +7,5 @@
 /tests/.coverage
 /db.sqlite
 /.idea/
+/qodana.yaml
+/qodana.sarif.json
